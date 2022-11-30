@@ -13,10 +13,8 @@ const criaTabela = (obj) => {
 
     cabecalho.forEach(headerText => {
         let header = document.createElement('th');
+        header.classList.add('cabecalho')
         let textNode = document.createTextNode(headerText.toUpperCase());
-        if(headerText === "uf" || headerText === "bairro" || headerText === "localidade" ) {
-            header.addEventListener('click', () => { console.log(headerText) });
-        }
         header.appendChild(textNode);
         linhaCabecalho.appendChild(header);
     });
@@ -27,6 +25,7 @@ const criaTabela = (obj) => {
         let row = document.createElement('tr');
         Object.values(item).forEach(text => {
             let cell  = document.createElement('td');
+            cell.classList.add('celulas')
             let textNode = document.createTextNode(text);
             cell.appendChild(textNode);
             row.appendChild(cell);
