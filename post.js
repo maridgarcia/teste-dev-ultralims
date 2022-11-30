@@ -1,4 +1,5 @@
 let span = document.createElement('span');
+span.classList.add = "erro"
 const resultado = document.querySelector('.resultado');
 const tableDiv = document.getElementById('tabela');
 
@@ -56,19 +57,25 @@ const salvaCep = () => {
 
     const cep = document.querySelector('#cep').value;
     const url = `https://viacep.com.br/ws/${cep}/json/`;
-    span.innerText = "CEP precisa ter 8 dígitos";
-    
-    tableDiv.innerHTML = ' ';
 
-    fetch(url)
-        .then((res) => {
-        res.json()
-        .then((dados) => {
-            if(!dados.erro) {
-                listaDeCepPesquisados.push(dados);
-            }
-            let listaDeCepFiltrada = [...new Map(listaDeCepPesquisados.map((item) => [item["cep"], item])).values()];
-            postRequest(url, listaDeCepFiltrada);
+    if (cep.length !== 8) {
+        alert('CEP precisa ter 8 dígitos');
+    }
+
+        tableDiv.innerHTML = ' ';
+        fetch(url)
+            .then((res) => {
+            res.json()
+            .then((dados) => {
+                if(!dados.erro) {
+                    listaDeCepPesquisados.push(dados);
+                }
+                if(dados.erro) {
+                    alert('CEP não localizado');
+                }
+                let listaDeCepFiltrada = [...new Map(listaDeCepPesquisados.map((item) => [item["cep"], item])).values()];
+                postRequest(url, listaDeCepFiltrada);
+            }).catch((e) => console.log(e));
         });
-    });
-}
+    }
+    
