@@ -1,0 +1,65 @@
+body, button {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.titulo {
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+
+#tabela {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#tabela, th, tr, td {
+    border-collapse: collapse;
+}
+#tabela td, #tabela th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tabela tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+#tabela th {
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #9380d5;
+    color: white;
+}
+
+#tabela tr:hover {
+    background-color: #ddd;
+}
+
+input {
+    border-color: lightgray;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+button {
+    border: none;
+    border-radius: 4px;
+    background-color: blue;
+    padding: 6px;
+    margin-left: 2px;
+    color: white;
+}
+
+button:hover {
+    background-color: rgb(14, 14, 168);
+    cursor: pointer;
+}
